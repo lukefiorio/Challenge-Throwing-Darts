@@ -3,14 +3,15 @@ function scoreCalculator(arr) {
   if (!Array.isArray(arr)) {
     throw new Error('Not an array!');
   }
+
   // not every element of array is a number
-  if (
-    !arr.every(function(elem) {
-      return typeof elem === 'number';
-    })
-  ) {
+  const allNumbers = arr.every(function(elem) {
+    return typeof elem === 'number';
+  });
+  if (!allNumbers) {
     throw new Error('Needs to be an array of numbers!');
   }
+
   // radius scores outside of valid range
   if (Math.max.apply(null, arr) > 20 || Math.min.apply(null, arr) < 1) {
     throw new Error('Missed the dartboard! (invalid radius)');
@@ -34,14 +35,15 @@ function scoreCalculator(arr) {
   let bonus = 0;
 
   // determine whether bonus should be awarded
-  if (
-    arr.every(function(elem) {
-      return elem < 5;
-    })
-  ) {
+  const awardBonus = arr.every(function(elem) {
+    return elem < 5;
+  });
+  if (awardBonus) {
     bonus = 100;
   }
+
   return score + bonus;
 }
 
 module.exports = scoreCalculator;
+console.log(scoreCalculator([1, 3, 5]));
