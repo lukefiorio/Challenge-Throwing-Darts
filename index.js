@@ -46,4 +46,3 @@ function scoreCalculator(arr) {
 }
 
 module.exports = scoreCalculator;
-console.log(scoreCalculator([1, 3, 5]));
