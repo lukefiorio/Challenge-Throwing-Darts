@@ -1,9 +1,6 @@
 // write tests here
-//const chai = require('./../node_modules/chai/chai.js');
 const chai = require('chai');
 const expect = chai.expect;
-const assert = chai.assert;
-const should = chai.should();
 var radiusScores = require('../index.js');
 
 describe('Input', function() {
@@ -42,6 +39,4 @@ describe('Output', function() {
     let results = radiusScores(input);
     expect(results).to.equal(140);
   });
-  // add test to make sure scores added correctly
-  // add test to make sure bonus awarded correctly
 });
